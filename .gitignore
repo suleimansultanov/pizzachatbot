@@ -1,0 +1,49 @@
+\# Byte-code files
+*.pyc
+__pycache__/
+
+# Distribution / packaging
+.Python
+env/
+venv/
+lib/
+lib64/
+include/
+bin/
+share/
+*.egg-info/
+.installed.cfg
+*.egg
+build/
+dist/
+
+# Development environments
+.vscode/
+.idea/
+.history/ # VS Code Local History
+
+# FastAPI specific
+.mypy_cache/ # Mypy type checker cache
+.pytest_cache/ # Pytest cache
+.ruff_cache/ # Ruff linter cache (if used)
+
+# Machine Learning Models and Data
+*.pkl           # Python Pickle files (often used for serialized models or data)
+*.gguf          # GGUF model files (common format for quantized large language models)
+
+# Database files (if using SQLite or similar local databases)
+*.db
+*.sqlite
+*.sqlite3
+
+# Log files
+*.log
+logs/
+
+# Environment variables / secrets
+.env
+.flaskenv # If using Flask in conjunction or similar patterns
+
+# Operating System files
+.DS_Store # macOS
+Thumbs.db # Windows
