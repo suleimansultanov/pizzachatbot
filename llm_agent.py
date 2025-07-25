@@ -51,3 +51,12 @@ Respond with only the intent label.
 def get_response(prompt):
     output = llm(prompt, max_tokens=256, stop=["User:", "AI:"])
     return output["choices"][0]["text"].strip()
+
+
+def ask_llm_and_speak(user_input):
+    from realtime_voice_assistant import speak
+    prompt = generate_prompt({}, user_input)
+    reply = get_response(prompt)
+    print("🤖 Bot:", reply)
+    speak(reply)
+    return reply
