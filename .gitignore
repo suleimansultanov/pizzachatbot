@@ -1,49 +1,88 @@
-\# Byte-code files
-*.pyc
+# === Python ===
 __pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.log
 
-# Distribution / packaging
-.Python
+# === Virtual Environment ===
 env/
 venv/
-lib/
-lib64/
-include/
-bin/
-share/
-*.egg-info/
-.installed.cfg
-*.egg
-build/
-dist/
+ENV/
+.venv/
 
-# Development environments
+# === Jupyter Notebooks ===
+*.ipynb
+.ipynb_checkpoints/
+
+# === IDEs / Editors ===
 .vscode/
 .idea/
-.history/ # VS Code Local History
+*.sublime-project
+*.sublime-workspace
 
-# FastAPI specific
-.mypy_cache/ # Mypy type checker cache
-.pytest_cache/ # Pytest cache
-.ruff_cache/ # Ruff linter cache (if used)
+# === OS Files ===
+.DS_Store
+Thumbs.db
 
-# Machine Learning Models and Data
-*.pkl           # Python Pickle files (often used for serialized models or data)
-*.gguf          # GGUF model files (common format for quantized large language models)
+# === Model/LLM Artifacts ===
+*.gguf
+*.bin
+*.pth
+*.pt
+*.ckpt
+*.onnx
+*.tflite
 
-# Database files (if using SQLite or similar local databases)
+# === Hugging Face and Transformers Cache ===
+~/.cache/
+.cache/
+huggingface/
+transformers_cache/
+datasets/
+
+# === Application / FastAPI Specific ===
+instance/
 *.db
 *.sqlite
 *.sqlite3
-
-# Log files
 *.log
+*.pid
+*.lock
 logs/
+staticfiles/
+media/
+uploads/
 
-# Environment variables / secrets
+# === Environment / Secrets ===
 .env
-.flaskenv # If using Flask in conjunction or similar patterns
+.env.*
+*.env
+secrets.json
+config.yaml
 
-# Operating System files
-.DS_Store # macOS
-Thumbs.db # Windows
+# === Build / Distribution ===
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+
+# === Lint / Coverage / Testing ===
+.coverage
+.tox/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+htmlcov/
+.cache/
+
+# === VS Code debugging configs ===
+launch.json
+tasks.json
+
+# === Pydantic compiled cache (rare) ===
+__pydantic__/ 
+
