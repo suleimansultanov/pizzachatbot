@@ -8,6 +8,7 @@ import subprocess
 import queue
 import os
 import pvporcupine
+from dialog_manager import DialogManager
 
 
 
@@ -18,7 +19,7 @@ whisper_model = whisper.load_model("base")
 access_key = "N8PyxcgsBjc2ve8aX7od/60wZ6uyhG7SwRAJi7NPeLviSZiDtqv3QQ=="
 porcupine = pvporcupine.create(
     access_key=access_key,
-    keywords=["porcupine"]
+    keywords=["jarvis"]
 )
 q = queue.Queue()
 
@@ -29,6 +30,7 @@ def speak(text):
 # Main LLM handler
 def ask_llm_and_speak(user_input):
     print(f"You said: {user_input}")
+    prompt = generate_prompt({}, user_input)
     intent = classify_intent_with_llm(user_input)
     print(f"Intent: {intent}")
     prompt = generate_prompt({}, user_input)
@@ -37,9 +39,10 @@ def ask_llm_and_speak(user_input):
     speak(reply)
     return reply
 
+
 # Wait for wake word
 def detect_wake_word():
-    print("🔔 Say 'Porcupine' to begin...")
+    print("Say 'jarvis' to begin...")
 
     def audio_callback(indata, frames, time, status):
         q.put(bytes(indata))
@@ -55,11 +58,11 @@ def detect_wake_word():
                 return
 
 #  Record speech after wake word
-def capture_and_respond():
+def capture_text():
     print("Listening for speech...")
 
     # Record 5 seconds of audio
-    audio_data = sd.rec(int(5 * 16000), samplerate=16000, channels=1, dtype='float32')
+    audio_data = sd.rec(int(10 * 16000), samplerate=16000, channels=1, dtype='float32')
     sd.wait()
 
     print("Transcribing...")
@@ -67,13 +70,5 @@ def capture_and_respond():
     user_text = result["text"].strip()
 
     if user_text:
-        ask_llm_and_speak(user_text)
-
-# Main loop
-def run_assistant_loop():
-    while True:
-        detect_wake_word()
-        capture_and_respond()
-
-if __name__ == "__main__":
-    run_assistant_loop()
+        return user_text
+    return ""

@@ -22,29 +22,29 @@ class DialogManager:
     def update(self, user_input: str, llm_reply: str, intent:str) -> str:
 
 
-        if intent == "pizza":
+        if "pizza" in intent:
             for item in re.findall(r'(\d+)?\s*([A-Za-z ]+?)(?=,|and|$)', user_input, re.IGNORECASE):
                 # quantity = int(item[0]) if item[0].isdigit() else 1
                 name = extract_order_details(user_input, "pizzas")
                 if(len(name) > 0):
                     self.order["pizzas"].append(name)
 
-        elif intent == "toppings":
+        elif "topping" in intent:
             toppings = [t.strip().lower() for t in user_input.split(",") if t.strip()]
             for topping in toppings:
                 tpng = extract_order_details(topping, "toppings")
                 self.order["toppings"].append(tpng)
 
-        elif intent == "extra":
+        elif "extra" in intent:
             extras = [e.strip().lower() for e in user_input.split(",") if e.strip()]
             for topping in toppings:
                 extras = extract_order_details(topping, "toppings")
                 self.order["extras"].append(extras)
 
-        elif intent == "note":
+        elif "note" in intent:
             self.order["notes"] += " " + user_input.strip()
 
-        elif intent == "address":
+        elif "address" in intent:
             self.order["address"] = user_input.strip()
             self.state = "complete"
 
