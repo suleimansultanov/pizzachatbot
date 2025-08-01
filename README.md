@@ -50,6 +50,28 @@ Voice Assistant
 
 Say “Jarvis” to activate the assistant. Requires microphone access and macOS (for say()).
 
+🧠 Dialog Flow Overview
+Here’s a simplified logic before turning it into a flowchart:
+
+Start / Wake Word Detected (if voice)
+⬇
+User Input Received (text or voice)
+⬇
+Intent Classification
+via combined_classify() (ML + rules + LLM fallback)
+⬇
+Prompt Generation & LLM Response
+via generate_prompt() → get_response()
+⬇
+Dialog Manager Updates Order Based on Intent
+"pizza", "topping", "extra", "note", "address"
+⬇
+Check if Order is Complete (has address)
+If yes → confirmation
+If no → ask for missing info
+⬇
+Bot Responds / Speaks Reply
+
 Future Improvements
 
 Add user authentication and order history
