@@ -35,6 +35,11 @@ PizzaBot/
 ## 🛠️ Installation
 
 Download local LLM model Mistral-Nemo-Instruct-2407-Q5_K_M.gguf and place it to the root folder
+pip install llama-cpp-python --upgrade
+pip install huggingface_hub hf_transfer
+huggingface-cli download bartowski/Mistral-Nemo-Instruct-2407-GGUF Mistral-Nemo-Instruct-2407-Q5_K_M.gguf --local-dir . --local-dir-use-symlinks False
+pip install git+https://github.com/openai/whisper.git
+
 
 Clone repo:
 ```bash
