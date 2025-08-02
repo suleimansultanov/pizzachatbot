@@ -17,15 +17,17 @@ This project is a voice- and text-based pizza ordering chatbot built using a loc
 
 ## 📦 Project Structure
 
-├── main.py # FastAPI app with message endpoint & voice assistant thread
-├── dialog_manager.py # Manages structured order and user dialog state
-├── intent_classifier.py # TF-IDF + RandomForest + rule-based fallback
-├── llm_agent.py # Prompt construction and LLM interaction (via llama.cpp)
-├── realtime_voice_assistant.py # Wake word detection & Whisper integration
-├── menu.py # Dictionary with available pizzas, toppings, extras
-├── data.py # Training data for intent classification
-├── frontend/ # React web widget (not included here)
-└── README.md
+my_project/
+├── main.py                     # FastAPI app with message endpoint & voice assistant thread  
+├── dialog_manager.py           # Manages structured order and user dialog state  
+├── intent_classifier.py        # TF-IDF + RandomForest + rule-based fallback  
+├── llm_agent.py                # Prompt construction and LLM interaction (via llama.cpp)  
+├── realtime_voice_assistant.py # Wake word detection & Whisper integration  
+├── menu.py                     # Dictionary with available pizzas, toppings, extras  
+├── data.py                     # Training data for intent classification  
+├── frontend/                   # React web widget (not included here)  
+└── README.md                   # Project overview and usage instructions
+
 ---
 
 ## 🛠️ Installation
@@ -38,6 +40,11 @@ pip install -r requirements.txt
 
 Start FastAPI backend:# pizzachatbot
 uvicorn main:app --reload
+
+Start React web widget frontend:# pizzachatbot
+npm install .
+npm start
+
 sample order format:
 {
   "pizzas": ["Margherita"],
