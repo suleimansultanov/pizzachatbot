@@ -7,6 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from intent_classifier import init, classify_intent, combined_classify
 from realtime_voice_assistant import detect_wake_word, capture_text, speak
 import threading
+import json
 
 app = FastAPI()
 
@@ -29,6 +30,12 @@ async def message_handler(user_message: UserMessage):
     user_input = user_message.message
     prompt = generate_prompt(dialog_manager.order, user_input)
     intent = combined_classify(user_input)
+    if(intent == "complete"):
+        json_string = json.dumps(dialog_manager.order)
+        return {
+        "reply": "Thank you for the order! here is your order summary: "+json_string,
+        "order": dialog_manager.order
+    }
     llm_reply = get_response(prompt)
     
     if llm_reply.strip() == "```":

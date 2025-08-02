@@ -39,6 +39,8 @@ def combined_classify(user_input: str) -> str:
 
     if any(pizza in input_lower for pizza in menu['pizzas']):
         return "pizza"
+    elif "complete" in input_lower:
+        return "complete"
     elif any(e in input_lower for e in menu['toppings']):
         return "toppings"
     elif any(word in input_lower for word in menu['extras']):
