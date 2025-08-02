@@ -27,14 +27,16 @@ PizzaBot/
 ├── menu.py                     # Dictionary with available pizzas, toppings, extras  
 ├── data.py                     # Training data for intent classification  
 ├── ReactWebWidgetFront/        # React web widget  
-├── Ai Project Documents/       # Project screenshots and diagrams, pdf report
+├── docs/                       # Project screenshots and diagrams, pdf report
 └── README.md                   # Project overview and usage instructions
 
 ---
 
 ## 🛠️ Installation
 
-1. Clone this repo:
+Download local LLM model Mistral-Nemo-Instruct-2407-Q5_K_M.gguf and place it to the root folder
+
+Clone repo:
 ```bash
 git clone https://github.com/yourusername/pizza-chatbot
 cd pizza-chatbot
