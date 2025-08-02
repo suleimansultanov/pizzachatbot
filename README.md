@@ -17,7 +17,8 @@ This project is a voice- and text-based pizza ordering chatbot built using a loc
 
 ## 📦 Project Structure
 
-my_project/
+PizzaBot/
+
 ├── main.py                     # FastAPI app with message endpoint & voice assistant thread  
 ├── dialog_manager.py           # Manages structured order and user dialog state  
 ├── intent_classifier.py        # TF-IDF + RandomForest + rule-based fallback  
@@ -25,7 +26,8 @@ my_project/
 ├── realtime_voice_assistant.py # Wake word detection & Whisper integration  
 ├── menu.py                     # Dictionary with available pizzas, toppings, extras  
 ├── data.py                     # Training data for intent classification  
-├── frontend/                   # React web widget (not included here)  
+├── ReactWebWidgetFront/        # React web widget  
+├── Ai Project Documents/       # Project screenshots and diagrams, pdf report
 └── README.md                   # Project overview and usage instructions
 
 ---
